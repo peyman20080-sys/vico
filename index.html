@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Vico | ربات هوشمند مدیریت روبیکا</title>
-    <!-- Font Vazirmatn from Google Fonts -->
+    <title>ویکوبات | ربات همه‌کاره روبیکا</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,281 +15,227 @@
 
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 50%, #0a0f1e 100%);
+            background: linear-gradient(135deg, #0a0a1a 0%, #0f0f23 50%, #0a0a1a 100%);
             color: #eef5ff;
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #1a1f2e;
+            background: #1a1a2e;
         }
         ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
+            background: #8b5cf6;
             border-radius: 10px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header / Hero Section */
+        /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 20% 30%, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 60%);
-            top: -50%;
-            left: -50%;
-            z-index: 0;
         }
         .hero-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
+            width: 100%;
         }
         .bot-icon {
-            font-size: 5.5rem;
-            background: linear-gradient(145deg, #3b82f6, #2563eb);
-            width: 130px;
-            height: 130px;
+            font-size: 4.5rem;
+            background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+            width: 120px;
+            height: 120px;
             margin: 0 auto 1.5rem;
-            border-radius: 38px;
+            border-radius: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 25px 40px -12px rgba(59,130,246,0.4);
-            transition: transform 0.3s;
-        }
-        .bot-icon i {
-            font-size: 4rem;
-            color: white;
-        }
-        .bot-icon:hover {
-            transform: scale(1.03);
+            box-shadow: 0 20px 35px -8px rgba(139,92,246,0.5);
         }
         h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, #94a3f8);
+            background: linear-gradient(135deg, #fff, #c4b5fd);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            margin-bottom: 1rem;
+        }
+        .badge {
+            background: rgba(139,92,246,0.2);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            margin: 1rem 0;
+            border: 1px solid #8b5cf6;
         }
         .tagline {
-            font-size: 1.3rem;
-            color: #cbd5e6;
-            max-width: 600px;
+            font-size: 1.2rem;
+            color: #b9c8ff;
+            max-width: 650px;
             margin: 0 auto 2rem;
         }
         .btn-group {
             display: flex;
-            gap: 18px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
         .btn {
-            padding: 14px 32px;
-            border-radius: 60px;
+            padding: 12px 28px;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            border: none;
             cursor: pointer;
+            border: none;
+            font-family: inherit;
         }
         .btn-primary {
-            background: linear-gradient(95deg, #3b82f6, #2563eb);
+            background: linear-gradient(95deg, #8b5cf6, #6d28d9);
             color: white;
-            box-shadow: 0 8px 18px rgba(37,99,235,0.3);
+            box-shadow: 0 6px 14px rgba(109,40,217,0.4);
         }
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px -8px #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px -8px #6d28d9;
         }
         .btn-outline {
             background: transparent;
-            border: 1.5px solid #3b82f6;
-            color: #e2e8ff;
+            border: 1.5px solid #8b5cf6;
+            color: #e0d4ff;
         }
         .btn-outline:hover {
-            background: rgba(59,130,246,0.15);
-            border-color: #60a5fa;
-            transform: translateY(-2px);
+            background: #8b5cf620;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(2px);
-            border-radius: 50px 50px 0 0;
+        /* Sections */
+        section {
+            padding: 60px 0;
         }
         .section-title {
             text-align: center;
-            font-size: 2.3rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-            width: 100%;
+            margin-bottom: 2.5rem;
         }
         .section-title span {
-            background: linear-gradient(120deg, #60a5fa, #a78bfa);
+            background: linear-gradient(120deg, #a78bfa, #c084fc);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
-        .grid {
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.5rem;
         }
         .feature-card {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(25, 25, 45, 0.7);
             backdrop-filter: blur(4px);
-            border-radius: 32px;
-            padding: 1.8rem;
-            transition: all 0.3s;
-            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 28px;
+            padding: 1.5rem;
+            border: 1px solid #2d2d5e;
+            transition: 0.2s;
         }
         .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: #3b82f680;
-            background: rgba(30, 41, 59, 0.9);
-            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
+            border-color: #8b5cf6;
+            transform: translateY(-4px);
         }
         .feature-icon {
-            font-size: 2.4rem;
-            color: #3b82f6;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            color: #a78bfa;
+            margin-bottom: 0.8rem;
         }
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
         }
         .feature-card p {
-            color: #b9c7da;
-            font-size: 0.95rem;
+            font-size: 0.8rem;
+            color: #b9c7dd;
         }
 
-        /* How to use */
-        .howto {
-            padding: 70px 0;
+        .commands-section {
+            background: rgba(10, 10, 26, 0.7);
+            border-radius: 50px;
+            margin: 20px 0;
         }
-        .steps {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        .step {
-            background: #111827;
-            border-radius: 28px;
-            padding: 1.8rem;
-            text-align: center;
-            width: 260px;
-            border-bottom: 3px solid #3b82f6;
-        }
-        .step-number {
-            width: 45px;
-            height: 45px;
-            background: #2563eb;
-            border-radius: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.4rem;
-            margin: 0 auto 1rem;
-        }
-
-        /* commands modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background: #0f172ad9;
-            border-radius: 38px;
-            max-width: 500px;
-            width: 90%;
+        .commands-box {
+            background: #0f0f1e;
+            border-radius: 32px;
             padding: 2rem;
-            border: 1px solid #3b82f6;
-            text-align: center;
+            border: 1px solid #2d2a4e;
         }
-        .modal-content ul {
+        .commands-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 1.2rem;
+        }
+        .cmd-category {
+            margin-bottom: 0.8rem;
+        }
+        .cmd-category h4 {
+            color: #c084fc;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            border-right: 3px solid #8b5cf6;
+            padding-right: 8px;
+        }
+        .cmd-list {
             list-style: none;
-            margin: 1.5rem 0;
         }
-        .modal-content li {
-            padding: 6px 0;
+        .cmd-list li {
+            font-size: 0.85rem;
+            padding: 4px 0;
+            color: #cfddf5;
             font-family: monospace;
-            font-size: 1.1rem;
-            border-bottom: 1px dashed #2d3a5e;
         }
-        .close-modal {
-            background: #ef4444;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 40px;
-            color: white;
-            cursor: pointer;
+        .warning-note {
+            background: #2d1f3a;
+            border-radius: 20px;
+            padding: 1rem;
+            margin-top: 1.8rem;
+            text-align: center;
+            border-right: 4px solid #f97316;
         }
 
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .contact-card {
+            background: #111128;
+            border-radius: 40px;
+            padding: 0.8rem 1.8rem;
+            text-align: center;
+        }
         footer {
             text-align: center;
-            padding: 30px 0;
-            font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
-            margin-top: 20px;
-            color: #7e8aa2;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(35px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            padding: 30px;
+            border-top: 1px solid #1e1a3a;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 700px) {
-            h1 { font-size: 2.4rem; }
-            .tagline { font-size: 1rem; }
-            .bot-icon { width: 100px; height: 100px; }
-            .btn { padding: 12px 20px; font-size: 0.9rem; }
+            h1 { font-size: 2rem; }
+            .container { padding: 0 18px; }
+            .commands-cols { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -302,124 +246,83 @@
         <div class="bot-icon">
             <i class="fas fa-robot"></i>
         </div>
-        <h1>Vico <span style="color:#3b82f6;">|</span> ربات مدیریت گروه</h1>
+        <h1>ویکوبات | 𝘃𝗶𝗰𝗼</h1>
+        <div class="badge"><i class="fas fa-check-circle"></i> ربات همه‌کاره روبیکا | مدیریت + سرگرمی + ابزارها</div>
         <p class="tagline">
-            قدرتمند، سریع و حرفه‌ای برای روبیکا<br>
-            مدیریت کامل گروه، آنتی اسپام، پیام خوش‌آمدگویی و قفل‌گذاری هوشمند
+            چت ناشناس، مدیریت کانال، ضدلینک، سخنگو، قرعه‌کشی، کوییز، حدس عدد، ماشین حساب و ده‌ها قابلیت جذاب دیگر!
         </p>
         <div class="btn-group">
-            <a href="#" class="btn btn-primary" id="inviteBtn">
+            <a href="https://rubika.ir/join?link=@vicobot" class="btn btn-primary" id="inviteBtn">
                 <i class="fas fa-plus-circle"></i> افزودن به گروه
             </a>
-            <button class="btn btn-outline" id="commandsBtn">
-                <i class="fas fa-terminal"></i> مشاهده دستورات
-            </button>
+            <a href="https://rubika.ir/vico_bot" class="btn btn-outline" target="_blank">
+                <i class="fas fa-bell"></i> کانال اطلاع‌رسانی
+            </a>
         </div>
     </div>
 </div>
 
-<section class="features">
+<section>
     <div class="container">
-        <h2 class="section-title"><span>⚡ قابلیت‌های ویژه</span> ویکو</h2>
-        <div class="grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-lock"></i></div>
-                <h3>قفل هوشمند گروه</h3>
-                <p>با یک دستور گروه رو قفل کن / باز کن. مدیریت پیام‌های ناخواسته آسان.</p>
+        <h2 class="section-title"><span>⚡</span> ویژگی‌های شگفت‌انگیز ویکوبات</h2>
+        <div class="features-grid">
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-user-secret"></i></div><h3>چت ناشناس</h3><p>ارتباط ناشناس و امن در گروه</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-link"></i></div><h3>ضد لینک</h3><p>دستور «لینک فعال» یا «لینک خاموش»</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-microphone-alt"></i></div><h3>سخنگوی خودکار</h3><p>پاسخ‌گوی هوشمند همیشه فعال</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-tag"></i></div><h3>اسم دلخواه</h3><p>«اسم ربات ویکو» + نام جدید</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-ban"></i></div><h3>حذف کلمات بیوچک</h3><p>پاکسازی خودکار الفاظ نامناسب</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>قفل / باز کردن کلمه</h3><p>مدیریت کلمات حساس گروه</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-chart-simple"></i></div><h3>آمار | اخطار</h3><p>گزارش فعالیت و سیستم اخطار</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-crown"></i></div><h3>لقب | تنظیم اصل</h3><p>«تنظیم لقب»، «لقب من»، «تنظیم اصل»، «اصل من»</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-gamepad"></i></div><h3>سرگرمی کامل</h3><p>چیستان، بیوگرافی، دانستنی، انگیزشی، چالش، سکه، جوک، پ ن پ، تکست</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-dice-d6"></i></div><h3>حدس عدد | تاس | ایموجی</h3><p>بازی‌های تعاملی</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-calculator"></i></div><h3>ماشین حساب | کوییز</h3><p>ابزار محاسبه و سوالات چهار گزینه‌ای</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-feather-alt"></i></div><h3>شعر | فکت | تاریخ</h3><p>دانستنی‌های روزانه و ادبی</p></div>
+            <div class="feature-card"><div class="feature-icon"><i class="fas fa-gift"></i></div><h3>قرعه کشی ویژه</h3><p>پایان هفته | اطلاعات از پیوی ربات و دکمه چالش</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="commands-section">
+    <div class="container">
+        <h2 class="section-title"><span>📜</span> دستورات و نحوه استفاده</h2>
+        <div class="commands-box">
+            <p style="margin-bottom: 1rem; text-align: center;"><i class="fas fa-info-circle"></i> <strong>نکته مهم:</strong> کافی است کلمه <code style="background:#2a2a4a; padding:4px 12px; border-radius:30px;">راهنما</code> را در گروه بفرستید تا تمام دستورات را ببینید.</p>
+            <div class="commands-cols">
+                <div class="cmd-category"><h4>🔐 مدیریتی</h4><ul class="cmd-list"><li>ضد لینک: لینک فعال / لینک خاموش</li><li>قفل کلمه (موردنظر)</li><li>بازکردن کلمه</li><li>لیست کلمات</li><li>حذف پیام</li><li>مدیریت کانال (به آیدی پشتیبان پیام دهید)</li></ul></div>
+                <div class="cmd-category"><h4>🎭 شخصی‌سازی</h4><ul class="cmd-list"><li>اسم ربات ویکو (سپس نام دلخواه)</li><li>تنظیم لقب / لقب من</li><li>پیشنهاد لقب</li><li>تنظیم اصل / اصل من</li></ul></div>
+                <div class="cmd-category"><h4>📊 آمار و اخطار</h4><ul class="cmd-list"><li>آمار</li><li>اخطار</li><li>تاریخ</li></ul></div>
+                <div class="cmd-category"><h4>🎲 سرگرمی و بازی</h4><ul class="cmd-list"><li>چیستان | بیوگرافی | دانستنی | انگیزشی</li><li>چالش | سکه | جوک</li><li>پ ن پ | تکست | حدس عدد</li><li>ایموجی | ماشین حساب | کوییز</li><li>فکت | شعر | تاس</li></ul></div>
+                <div class="cmd-category"><h4>🎁 قرعه‌کشی</h4><ul class="cmd-list"><li>فعال در روزهای پایانی هفته</li><li>برای اطلاعات بیشتر به پیوی ربات رفته و دکمه چالش را بزنید</li></ul></div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-broom"></i></div>
-                <h3>پاکسازی خودکار</h3>
-                <p>حذف خودکار پیام‌های تبلیغاتی، لینک‌ها و هرزنامه بر اساس تنظیمات.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-comment-dots"></i></div>
-                <h3>خوش‌آمدگویی اختصاصی</h3>
-                <p>ارسال پیام خوش‌آمدگویی به اعضای جدید با ذخیره اسم یا قابلیت شخصی‌سازی.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>گزارش فعالیت‌ها</h3>
-                <p>مشاهده آمار ورود و خروج، تعداد پیام‌ها و سطح فعالیت اعضا.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <h3>پیام زمانبندی شده</h3>
-                <p>برنامه‌ریزی برای ارسال خودکار اطلاعیه، یادآوری یا تذکر گروهی.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>سیستم آنتی اسپم</h3>
-                <p>شناسایی تکرار پیام، حساسیت به کلمات خاص و محدودیت ارسال پیام.</p>
+            <div class="warning-note">
+                <i class="fas fa-exclamation-triangle"></i> تذکر مهم: برای اجرای هر کدام از دستورات کافیه کلمه <strong>«راهنما»</strong> رو داخل گروه بفرستی! همچنین ربات قابلیت حذف کلمات بیوچک را به صورت خودکار دارد.
             </div>
         </div>
     </div>
 </section>
 
-<section class="howto">
+<section>
     <div class="container">
-        <h2 class="section-title"><span>🚀</span> سه قدم تا مدیریت حرفه‌ای</h2>
-        <div class="steps">
-            <div class="step"><div class="step-number">۱</div> <strong>ربات رو به گروه اضافه کن</strong><br> با دکمه بالا یا لینک دعوت روبیکا</div>
-            <div class="step"><div class="step-number">۲</div> <strong>دستور /help رو بفرست</strong><br> تا راهنمای کامل دریافت کنی</div>
-            <div class="step"><div class="step-number">۳</div> <strong>مدیریت رو به ویکو بسپار</strong><br> تنظیمات دلخواه و لذت ببر!</div>
+        <h2 class="section-title"><span>📞</span> ارتباط با ویکوبات</h2>
+        <div class="contact-info">
+            <div class="contact-card"><i class="fab fa-telegram-plane"></i> <strong>آیدی ربات:</strong> @vicobot</div>
+            <div class="contact-card"><i class="fas fa-headset"></i> <strong>پشتیبانی:</strong> @peyman_m_1</div>
+            <div class="contact-card"><i class="fas fa-rss"></i> <strong>کانال خبری:</strong> <a href="https://rubika.ir/vico_bot" style="color:#c084fc;" target="_blank">rubika.ir/vico_bot</a></div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="container">
-        <p><i class="fas fa-heart" style="color:#ef4444;"></i> ساخته شده برای روبیکا | ربات Vico – مدیریت بدون دردسر</p>
-        <p style="margin-top: 8px;">پشتیبانی: <i class="fas fa-envelope"></i> vico@rubika.bot  |  <i class="fab fa-telegram"></i> @VicoSupport</p>
-    </div>
+    <p><i class="fas fa-heart" style="color:#f43f5e;"></i> ربات همه کاره ویکو | مدیریت گروه + چت ناشناس + سرگرمی حرفه‌ای برای روبیکا</p>
+    <p style="margin-top: 8px;">افزودن ربات به گروه : @vicobot  |  توسعه یافته توسط تیم vico</p>
 </footer>
 
-<!-- Modal for commands -->
-<div id="commandModal" class="modal">
-    <div class="modal-content">
-        <i class="fas fa-microchip" style="font-size: 2rem; color:#3b82f6;"></i>
-        <h3 style="margin: 10px 0;">دستورات کلیدی ویکو</h3>
-        <ul>
-            <li>/lock 🔒 قفل گروه</li>
-            <li>/unlock 🔓 باز کردن قفل</li>
-            <li>/setwelcome 👋 تنظیم پیام خوش‌آمدگویی</li>
-            <li>/antispam on 🛡️ فعال‌سازی آنتی‌اسپم</li>
-            <li>/stats 📊 آمار گروه</li>
-            <li>/help 📚 راهنمای کامل</li>
-        </ul>
-        <button class="close-modal">بستن</button>
-    </div>
-</div>
-
 <script>
-    // Modal Logic
-    const modal = document.getElementById('commandModal');
-    const commandsBtn = document.getElementById('commandsBtn');
-    const closeModalBtn = document.querySelector('.close-modal');
-
-    commandsBtn.onclick = () => {
-        modal.style.display = 'flex';
-    }
-    closeModalBtn.onclick = () => {
-        modal.style.display = 'none';
-    }
-    window.onclick = (e) => {
-        if(e.target === modal) modal.style.display = 'none';
-    }
-
-    // Invite link - replace YOUR_BOT_USERNAME or Rubika bot invite link
-    const inviteBtn = document.getElementById('inviteBtn');
-    // Attention: Rubika bot invite format can be like https://rubika.ir/join?link=... or direct @username
-    // You must put your real bot invite link here (Edit this line!)
-    const BOT_INVITE_LINK = "https://rubika.ir/join?link=YOUR_BOT_LINK";  // 🔁 جایگزین کن با لینک واقعی رباتت
-    
-    inviteBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.open(BOT_INVITE_LINK, '_blank');
+    document.getElementById('inviteBtn')?.addEventListener('click', function(e) {
+        // if needed custom link but @vicobot works in rubika
+        window.open('https://rubika.ir/join?link=@vicobot', '_blank');
     });
-
-    // small console hint
-    console.log("Vico Bot Page — لینک دعوت را در متغیر BOT_INVITE_LINK قرار دهید");
 </script>
 </body>
-  </html>
+    </html>
