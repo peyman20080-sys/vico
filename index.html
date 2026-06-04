@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* animated gradient background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -51,17 +50,8 @@
             z-index: 2;
         }
 
-        /* glass morphism */
-        .glass {
-            background: rgba(20, 20, 45, 0.45);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 48px;
-        }
-
-        /* hero section */
         .hero {
-            min-height: 95vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             text-align: center;
@@ -140,7 +130,6 @@
             transform: scale(1.02);
         }
 
-        /* Features as cool buttons section */
         .features-cool {
             padding: 40px 0 80px;
         }
@@ -158,7 +147,7 @@
         }
         .button-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
@@ -202,21 +191,14 @@
             font-size: 0.75rem;
             color: #b9c7ff;
         }
-        .badge-new {
-            background: #d946ef;
-            border-radius: 50px;
-            padding: 4px 12px;
-            font-size: 0.65rem;
-            font-weight: bold;
-        }
 
-        /* modal premium */
+        /* modal */
         .modal-modern {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             backdrop-filter: blur(12px);
             align-items: center;
             justify-content: center;
@@ -260,6 +242,7 @@
             font-weight: bold;
         }
 
+        /* contact links - جدید با قابلیت کلیک مستقیم */
         .contact-row {
             display: flex;
             justify-content: center;
@@ -267,11 +250,38 @@
             flex-wrap: wrap;
             margin: 40px 0 20px;
         }
-        .contact-chip {
+        .contact-link {
             background: #0f0f2a;
             border-radius: 80px;
-            padding: 10px 24px;
+            padding: 12px 28px;
             border: 1px solid #6d28d9;
+            text-decoration: none;
+            color: #e9d5ff;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .contact-link:hover {
+            background: #8b5cf630;
+            border-color: #c084fc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139,92,246,0.3);
+        }
+        .contact-link i {
+            font-size: 1.2rem;
+            color: #c084fc;
+        }
+
+        .help-note {
+            background: #1a1a3a30;
+            border-radius: 40px;
+            padding: 15px;
+            text-align: center;
+            margin: 10px 0;
+            backdrop-filter: blur(4px);
         }
         footer {
             text-align: center;
@@ -284,6 +294,7 @@
             h1 { font-size: 2.4rem; }
             .button-grid { grid-template-columns: 1fr; }
             .feature-btn { padding: 0.8rem 1.2rem; }
+            .contact-link { padding: 8px 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -296,17 +307,17 @@
             <i class="fas fa-robot"></i>
         </div>
         <h1 class="glow-text">ویکوبات | 𝘃𝗶𝗰𝗼</h1>
-        <div style="margin: 15px 0;"><span class="badge-new"><i class="fas fa-star-of-life"></i> ربات نسل جدید</span></div>
+        <div style="margin: 15px 0;"><span style="background: #d946ef; border-radius: 50px; padding: 4px 16px; font-size: 0.8rem;"><i class="fas fa-star-of-life"></i> ربات نسل جدید روبیکا</span></div>
         <p class="tagline">
             مدیریت حرفه‌ای + چت ناشناس + ضدلینک + سخنگو + بازی و قرعه‌کشی <br>
-            همه چیز در یک ربات فوق‌العاده برای روبیکا
+            همه چیز در یک ربات فوق‌العاده
         </p>
         <div class="btn-group">
-            <a href="https://rubika.ir/vicobot" class="btn btn-primary" id="inviteBtn">
+            <a href="https://rubika.ir/join?link=@vicobot" class="btn btn-primary" id="inviteBtn">
                 <i class="fas fa-plus-circle"></i> افزودن به گروه
             </a>
             <a href="https://rubika.ir/vico_bot" class="btn btn-outline" target="_blank">
-                <i class="fas fa-channel"></i> کانال رسمی
+                <i class="fas fa-bell"></i> کانال رسمی
             </a>
         </div>
     </div>
@@ -314,22 +325,29 @@
 
 <section class="features-cool">
     <div class="container">
-        <h2 class="section-title"><span>✨ قابلیت‌های ویکوبات</span> <br> <span style="font-size: 1rem;">(هر دکمه = یک دسته کامل)</span></h2>
-        <div class="button-grid" id="featuresGrid">
-            <!-- هر دکمه یک مودال با دستورات مربوطه باز می‌کند -->
-        </div>
+        <h2 class="section-title"><span>✨ قابلیت‌های ویکوبات</span></h2>
+        <div class="button-grid" id="featuresGrid"></div>
     </div>
 </section>
 
 <div class="container">
+    <!-- بخش ارتباط با کلیک مستقیم روبیکا -->
     <div class="contact-row">
-        <div class="contact-chip"><i class="fab fa-telegram-plane"></i> <a href="https://rubika.ir/vicobot" style="color:#c084fc;">@vicobot</a></div>
-</div>
-        <div class="contact-chip"><i class="fas fa-headset"></i> <a href="https://rubika.ir/peyman_m_1" style="color:#c084fc;">@peyman_m_1</a></div>
-</div>
-        <div class="contact-chip"><i class="fas fa-rss"></i> <a href="https://rubika.ir/vico_bot" style="color:#c084fc;">@vico_bot</a></div>
-</div>
-    <div style="background:#1a1a3a30; border-radius: 40px; padding: 15px; text-align: center; margin: 10px 0;">
+        <a href="https://rubika.ir/vicobot" class="contact-link" target="_blank">
+            <i class="fab fa-telegram-plane"></i> @vicobot
+            <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+        </a>
+        <a href="https://rubika.ir/peyman_m_1" class="contact-link" target="_blank">
+            <i class="fas fa-headset"></i> @peyman_m_1
+            <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+        </a>
+        <a href="https://rubika.ir/vico_bot" class="contact-link" target="_blank">
+            <i class="fas fa-rss"></i> @vico_bot
+            <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+        </a>
+    </div>
+    
+    <div class="help-note">
         <i class="fas fa-info-circle"></i> <strong>راهنما:</strong> کلمه <code style="background:#00000060; padding:4px 12px; border-radius:40px;">راهنما</code> را در گروه بفرستید تا همه دستورات را ببینید!
     </div>
 </div>
@@ -338,7 +356,7 @@
     <i class="fas fa-gem" style="color:#c084fc;"></i> ویکوبات – قدرتمندترین ربات مدیریت و سرگرمی روبیکا
 </footer>
 
-<!-- Modal Structure -->
+<!-- Modal -->
 <div id="commandModal" class="modal-modern">
     <div class="modal-card">
         <i class="fas fa-crown" style="font-size: 2.2rem; color: #f0abfc;"></i>
@@ -349,7 +367,6 @@
 </div>
 
 <script>
-    // دیتای کامل قابلیت‌ها به صورت دسته‌بندی
     const featuresData = [
         {
             title: "🔐 مدیریت گروه و ضد لینک",
@@ -390,7 +407,7 @@
     const closeModalBtn = document.querySelector('.close-modal-btn');
 
     function buildButtons() {
-        featuresData.forEach((item, index) => {
+        featuresData.forEach((item) => {
             const btnDiv = document.createElement('div');
             btnDiv.className = 'feature-btn';
             btnDiv.innerHTML = `
@@ -426,7 +443,6 @@
 
     buildButtons();
 
-    // invite link confirmation
     const inviteBtn = document.getElementById('inviteBtn');
     if(inviteBtn) {
         inviteBtn.addEventListener('click', (e) => {
@@ -436,4 +452,4 @@
     }
 </script>
 </body>
-    </html>
+            </html>
